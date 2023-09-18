@@ -24,7 +24,25 @@ if experiment == "table":
 
 elif experiment == "ablation":
     experiment_range_pufr = []
-    experiment_range_ablation = [0.001, 0.002, 0.005, 0.01, 0.02, 0.03, 0.04, 0.05, 0.075, 0.1, 0.2, 0.4, 0.6, 0.8, 1, 1.5, 2]
+    experiment_range_ablation = [
+        0.001,
+        0.002,
+        0.005,
+        0.01,
+        0.02,
+        0.03,
+        0.04,
+        0.05,
+        0.075,
+        0.1,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1,
+        1.5,
+        2,
+    ]
     experiment_range_fair = []
     experiment_range_cvxopt = []
 
@@ -36,7 +54,20 @@ elif experiment == "trade-off-curve":
     )
     experiment_range_ablation = []
     experiment_range_fair = [0.2, 0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.95]
-    experiment_range_cvxopt = [0.6, 0.7, 0.75, 0.775, 0.8, 0.85, 0.9, 0.91, 0.92, 0.93, 0.95, 0.97]
+    experiment_range_cvxopt = [
+        0.6,
+        0.7,
+        0.75,
+        0.775,
+        0.8,
+        0.85,
+        0.9,
+        0.91,
+        0.92,
+        0.93,
+        0.95,
+        0.97,
+    ]
 
 path_to_results_per_query = "results/msmarco_results_per_query_" + experiment + ".csv"
 path_to_results = "results/msmarco_mean_results_" + experiment + ".csv"
@@ -178,7 +209,7 @@ candidate_data.to_csv(path_to_reranked_candidates, index=False)
 
 
 print(
-    results_df.groupby(["approach", "alpha"], as_index=True).mean()[
+    results_df.groupby(["approach", "alpha"], as_index=True)[
         ["ndcg_cut_10", "ndcg_cut_100", "nfairr10", "nfairr50", "avg_runtime"]
-    ]
+    ].mean()
 )

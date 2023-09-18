@@ -42,8 +42,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
 ## Usage
 Packages used in this repository can be found in requirements.txt 
 
-To run the experiments that are recorded in the paper create a folder called 'results'
-and run 'run_msmarco.py'.
+To run the experiments that are recorded in the paper create a folder called 'results', 
+unzip the data in the 'data'-folder and run 'run_msmarco.py'. The file 'msmarco_pointwise_uncertainty.csv' 
+contains pre-calculated uncertainty estimates in form of mean and standard deviation. 
+An example of how such uncertainty estimates can be generated can be found in 'uncertainty.laplace_approximation.py'.  
 By choosing the variable 'experiment' in ['table', 'ablation', 'trade-off-curve']
 the results of the table, ablation-study resp. trade-off plot can be generated. 
 This will create new files in the '\results\' folder one with the full candidate
